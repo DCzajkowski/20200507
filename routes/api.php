@@ -22,14 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/users', function (Request $request) {
     $search = $request->search;
 
-    return User::where('email', 'like', "%$search%")
-        ->get()
-        ->map(function (User $user) {
-            return array_merge(
-                $user->toArray(),
-                [
-                    'name_and_email' => $user->name . ' ' . $user->email
-                ]
-            );
-        });
+    return UserResource::collection(User::where('email', 'like', "%$search%")->get());
 });

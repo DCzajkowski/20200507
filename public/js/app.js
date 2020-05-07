@@ -2007,7 +2007,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 6:
                 response = _context.sent;
-                data = response.data;
+                data = response.data.data;
                 this.items = data;
 
               case 9:

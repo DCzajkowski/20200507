@@ -65,7 +65,7 @@
                 this.activeItem = 0
 
                 const response = await axios.get(`${this.url}?search=${search}`)
-                const data = response.data
+                const data = response.data.data
 
                 this.items = data
             }, 500),
